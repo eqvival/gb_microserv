@@ -19,6 +19,6 @@ metadata:
   labels:
     app: postgres
 data:
-  redmine_db_postgres: database
-  redmine_db_username: ${postgres_user}
-  redmine_db_database: ${postgres_db}
+  REDMINE_DB_POSTGRES: database
+  REDMINE_DB_USERNAME: ${postgres_user}
+  REDMINE_DB_DATABASE: ${postgres_db}
