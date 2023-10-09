@@ -1,0 +1,64 @@
+Name:             redmine-66478fcfd6-98db9
+Namespace:        lesson05
+Priority:         0
+Service Account:  default
+Node:             kubernetes-cluster-9146-default-group-0/10.0.0.19
+Start Time:       Sun, 08 Oct 2023 15:41:32 +0300
+Labels:           app=redmine
+                  pod-template-hash=66478fcfd6
+Annotations:      cni.projectcalico.org/containerID: ec1f931d2eb12de9fcac79ddbf5f926bd3d294bb0a0bace904f24de2665831a8
+                  cni.projectcalico.org/podIP: 10.100.117.195/32
+                  cni.projectcalico.org/podIPs: 10.100.117.195/32
+                  kubernetes.io/limit-ranger: LimitRanger plugin set: cpu, memory request for container redmine; cpu, memory limit for container redmine
+Status:           Pending
+IP:               10.100.117.195
+IPs:
+  IP:           10.100.117.195
+Controlled By:  ReplicaSet/redmine-66478fcfd6
+Containers:
+  redmine:
+    Container ID:   
+    Image:          redmine:4.1.1
+    Image ID:       
+    Port:           3000/TCP
+    Host Port:      0/TCP
+    State:          Waiting
+      Reason:       CreateContainerConfigError
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     500m
+      memory:  512Mi
+    Requests:
+      cpu:     100m
+      memory:  64Mi
+    Environment:
+      REDMINE_SECRET_KEY_BASE:  <set to the key 'redmine_db_postgres' in secret 'redmine-secret'>      Optional: false
+      REDMINE_DB_DATABASE:      <set to the key 'redmine_db_database' of config map 'redmine-config'>  Optional: false
+      REDMINE_DB_POSTGRES:      <set to the key 'redmine_db_postgres' of config map 'redmine-config'>  Optional: false
+      REDMINE_DB_USERNAME:      <set to the key 'redmine_db_username' of config map 'redmine-config'>  Optional: false
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-b4924 (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             False 
+  ContainersReady   False 
+  PodScheduled      True 
+Volumes:
+  kube-api-access-b4924:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                     From               Message
+  ----     ------     ----                    ----               -------
+  Normal   Scheduled  6m16s                   default-scheduler  Successfully assigned lesson05/redmine-66478fcfd6-98db9 to kubernetes-cluster-9146-default-group-0
+  Warning  Failed     4m18s (x12 over 6m16s)  kubelet            Error: couldn't find key redmine_db_postgres in Secret lesson05/redmine-secret
+  Normal   Pulled     72s (x26 over 6m16s)    kubelet            Container image "redmine:4.1.1" already present on machine
