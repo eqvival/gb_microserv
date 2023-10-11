@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: postgres
-  namespace: lesson05
+  namespace: gb5
 spec:
   replicas: 1
   selector:
@@ -45,6 +45,13 @@ spec:
         volumeMounts:
         - name: pvc-nfs
           mountPath: /var/lib/postgresql/data
+        resources:
+          requests:
+            cpu: 500m
+            memory: 500Mi
+          limits:
+            cpu: 500m
+            memory: 500Mi
       volumes:
       - name: pvc-nfs
         persistentVolumeClaim:

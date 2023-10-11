@@ -3,7 +3,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: database
-  namespace: lesson05
+  namespace: gb5
 spec:
   ports:
   - port: 5432
@@ -16,7 +16,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: redmine
-  namespace: lesson05
+  namespace: gb5
 spec:
   ports:
   - port: 30000

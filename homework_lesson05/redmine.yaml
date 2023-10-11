@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: redmine
-  namespace: lesson05
+  namespace: gb5
 spec:
   replicas: 1
   selector:
